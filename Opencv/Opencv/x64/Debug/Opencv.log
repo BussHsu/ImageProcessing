@@ -1,9 +1,11 @@
 ﻿  main.cpp
-c:\users\s9552\onedrive\文件\visual studio 2015\projects\opencv\opencv\myimpl.h(54): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\s9552\onedrive\文件\visual studio 2015\projects\opencv\opencv\myimpl.h(68): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\s9552\onedrive\文件\visual studio 2015\projects\opencv\opencv\myimpl.h(121): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\s9552\onedrive\文件\visual studio 2015\projects\opencv\opencv\myimpl.h(204): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\s9552\onedrive\文件\visual studio 2015\projects\opencv\opencv\myimpl.h(204): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
-c:\users\s9552\onedrive\文件\visual studio 2015\projects\opencv\opencv\myimpl.h(219): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  Opencv.vcxproj -> C:\Users\s9552\OneDrive\文件\Visual Studio 2015\Projects\Opencv\x64\Debug\Opencv.exe
-  Opencv.vcxproj -> C:\Users\s9552\OneDrive\文件\Visual Studio 2015\Projects\Opencv\x64\Debug\Opencv.pdb (Partial PDB)
+c:\users\s9552\onedrive\文件\github\imageprocessing\opencv\opencv\myimpl.h(54): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\s9552\onedrive\文件\github\imageprocessing\opencv\opencv\myimpl.h(68): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\s9552\onedrive\文件\github\imageprocessing\opencv\opencv\myimpl.h(197): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\s9552\onedrive\文件\github\imageprocessing\opencv\opencv\myimpl.h(197): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+c:\users\s9552\onedrive\文件\github\imageprocessing\opencv\opencv\myimpl.h(212): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\s9552\onedrive\文件\github\imageprocessing\opencv\opencv\main.cpp(33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s9552\onedrive\文件\github\imageprocessing\opencv\opencv\main.cpp(74): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+  Opencv.vcxproj -> C:\Users\s9552\OneDrive\文件\GitHub\ImageProcessing\Opencv\x64\Debug\Opencv.exe
+  Opencv.vcxproj -> C:\Users\s9552\OneDrive\文件\GitHub\ImageProcessing\Opencv\x64\Debug\Opencv.pdb (Partial PDB)

@@ -118,59 +118,8 @@ Mat MyCanny(const Mat& src, float upperThreshold, float lowerThreshold, int size
 			*itRes = 255;
 
 			cv::Point pos = itMag.pos();
-			int dirGroup = (*itDir - 22.5f) / 45;
-			switch (dirGroup)
-			{
-			case 1:		// 22.5 <currDir <= 67.5
-			{
-				//check upper right neighbor
-				if (pos.x > 0 && pos.y< sum.cols - 1 && res.at<unsigned char>(pos.y + 1, pos.x - 1) != 255 && sum.at<float>(pos.y + 1, pos.x - 1) > lowerThreshold)
-				{
-					res.ptr<unsigned char>(pos.y + 1, pos.x - 1)[0] = 64;
-					imgChanged = true;
-				}
-				//check lower left neighbor
-				if (pos.x < sum.cols - 1 && pos.y>0 && res.at<unsigned char>(pos.y - 1, pos.x + 1) != 255 && sum.at<float>(pos.y - 1, pos.x + 1) > lowerThreshold)
-				{
-					res.ptr<unsigned char>(pos.y - 1, pos.x + 1)[0] = 64;
-					imgChanged = true;
-				}
-			}
-			break;
-			case 2:		//67.5< currDir <= 112.5	(gradient is horizontal)
-			{
-				//check upper
-				if (pos.x > 0 && res.at<unsigned char>(pos.y, pos.x - 1) != 255 && sum.at<float>(pos.y, pos.x - 1) > lowerThreshold)
-				{
-					res.ptr<unsigned char>(pos.y, pos.x - 1)[0] = 64;
-					imgChanged = true;
-				}
-				//check lower
-				if (pos.x< sum.rows - 1 && res.at<unsigned char>(pos.y, pos.x + 1) != 255 && sum.at<float>(pos.y, pos.x + 1)>lowerThreshold)
-				{
-					res.ptr<unsigned char>(pos.y, pos.x + 1)[0] = 64;
-					imgChanged = true;
-				}
-			}
-			break;
-			case 3:		//112.5<currDir < 157.5
-			{
-				//check upper left neighbor
-				if (pos.x > 0 && pos.y > 0 && res.at<unsigned char>(pos.y - 1, pos.x - 1) != 255 && sum.at<float>(pos.y - 1, pos.x - 1) > lowerThreshold)
-				{
-					res.ptr<unsigned char>(pos.y - 1, pos.x - 1)[0] = 64;
-					imgChanged = true;
-				}
-				//check lower right neighbor
-				if (pos.x < sum.cols - 1 && pos.y< sum.rows - 1 && res.at<unsigned char>(pos.y + 1, pos.x + 1) != 255 && sum.at<float>(pos.y + 1, pos.x + 1) > lowerThreshold)
-				{
-					res.ptr<unsigned char>(pos.y + 1, pos.x + 1)[0] = 64;
-					imgChanged = true;
-				}
 
-			}
-			break;
-			default:	//currDir < 22.5 or currDir>157.5 (gradient is vertical)
+			if (*itDir<22.5f||*itDir>157.5f)
 			{
 				//check left
 				if (pos.y > 0 && res.at<unsigned char>(pos.y - 1, pos.x) != 255 && sum.at<float>(pos.y - 1, pos.x) > lowerThreshold)
@@ -185,6 +134,50 @@ Mat MyCanny(const Mat& src, float upperThreshold, float lowerThreshold, int size
 					imgChanged = true;
 				}
 			}
+			else if (*itDir < 67.5f)
+			{
+				//check upper right neighbor
+				if (pos.x > 0 && pos.y< sum.cols - 1 && res.at<unsigned char>(pos.y + 1, pos.x - 1) != 255 && sum.at<float>(pos.y + 1, pos.x - 1) > lowerThreshold)
+				{
+					res.ptr<unsigned char>(pos.y + 1, pos.x - 1)[0] = 64;
+					imgChanged = true;
+				}
+				//check lower left neighbor
+				if (pos.x < sum.cols - 1 && pos.y>0 && res.at<unsigned char>(pos.y - 1, pos.x + 1) != 255 && sum.at<float>(pos.y - 1, pos.x + 1) > lowerThreshold)
+				{
+					res.ptr<unsigned char>(pos.y - 1, pos.x + 1)[0] = 64;
+					imgChanged = true;
+				}
+			}
+			else if (*itDir < 112.5f)
+			{
+				//check upper
+				if (pos.x > 0 && res.at<unsigned char>(pos.y, pos.x - 1) != 255 && sum.at<float>(pos.y, pos.x - 1) > lowerThreshold)
+				{
+					res.ptr<unsigned char>(pos.y, pos.x - 1)[0] = 64;
+					imgChanged = true;
+				}
+				//check lower
+				if (pos.x< sum.rows - 1 && res.at<unsigned char>(pos.y, pos.x + 1) != 255 && sum.at<float>(pos.y, pos.x + 1)>lowerThreshold)
+				{
+					res.ptr<unsigned char>(pos.y, pos.x + 1)[0] = 64;
+					imgChanged = true;
+				}
+			}
+			else
+			{
+				//check upper left neighbor
+				if (pos.x > 0 && pos.y > 0 && res.at<unsigned char>(pos.y - 1, pos.x - 1) != 255 && sum.at<float>(pos.y - 1, pos.x - 1) > lowerThreshold)
+				{
+					res.ptr<unsigned char>(pos.y - 1, pos.x - 1)[0] = 64;
+					imgChanged = true;
+				}
+				//check lower right neighbor
+				if (pos.x < sum.cols - 1 && pos.y< sum.rows - 1 && res.at<unsigned char>(pos.y + 1, pos.x + 1) != 255 && sum.at<float>(pos.y + 1, pos.x + 1) > lowerThreshold)
+				{
+					res.ptr<unsigned char>(pos.y + 1, pos.x + 1)[0] = 64;
+					imgChanged = true;
+				}
 			}
 
 		}
